@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "ANmk/G/iOpuWTQCRD978lYhVcR4huJCvaugSWF/Z5+A=",
+  "Source": "SaveIMGAPI",
+  "BasePath": "_content/SaveIMGAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SaveIMGAPI\\wwwroot",
+      "Source": "SaveIMGAPI",
+      "ContentRoot": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\",
+      "BasePath": "_content/SaveIMGAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\Images\\photo_2022-08-28_15-38-46.jpg",
+      "SourceId": "SaveIMGAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\",
+      "BasePath": "_content/SaveIMGAPI",
+      "RelativePath": "Images/photo_2022-08-28_15-38-46.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\photo_2022-08-28_15-38-46.jpg"
+    },
+    {
+      "Identity": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\Images\\rt.jpg",
+      "SourceId": "SaveIMGAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\",
+      "BasePath": "_content/SaveIMGAPI",
+      "RelativePath": "Images/rt.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\rt.jpg"
+    },
+    {
+      "Identity": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\Images\\tt.jpg",
+      "SourceId": "SaveIMGAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\C#\\SaveIMGAPI\\SaveIMGAPI\\wwwroot\\",
+      "BasePath": "_content/SaveIMGAPI",
+      "RelativePath": "Images/tt.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\tt.jpg"
+    }
+  ]
+}
