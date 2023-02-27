@@ -16,4 +16,8 @@
       <Folder Include="wwwroot" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include=".githubs\workflows\learn-github-actions.yml" />
+    </ItemGroup>
+
 </Project>
