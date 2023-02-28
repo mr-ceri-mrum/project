@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SaveIMGAPI.Models;
+using SaveIMGAPI.Service;
 
 namespace SaveIMGAPI.Controllers
 {
@@ -8,11 +10,62 @@ namespace SaveIMGAPI.Controllers
     public class FileUploadConteoller : ControllerBase
     {
         private static IWebHostEnvironment _webHostEnvironment;
-
-        public FileUploadConteoller(IWebHostEnvironment webHostEnvironment)
+        private readonly UploadFileService _uploadFileService;
+        private readonly IHostEnvironment _environment;
+        private readonly DataContext _dataContext;
+        public FileUploadConteoller(IWebHostEnvironment webHostEnvironment , UploadFileService uploadFileService, IHostEnvironment environment, DataContext dataContext)
         {
             _webHostEnvironment = webHostEnvironment;
+            _uploadFileService = uploadFileService;
+            _environment = environment;
+            _dataContext = dataContext;
         }
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register(string fullname, IFormFile file)
+        {
+            //await _pushSms.Sms(phone);
+            string path = Path.Combine(_environment.ContentRootPath, "wwwroot/images/");
+            List<string> photoPath = new List<string>();
+            photoPath.Add($"images/{file.FileName}");
+            _uploadFileService.Upload(path, file.FileName, file);
+            
+            User intermediateUser = new User
+            {
+                Name = fullname,
+                FotoPath = photoPath,
+            };
+            _dataContext.Users.Add(intermediateUser);
+            await _dataContext.SaveChangesAsync();
+            return Ok(intermediateUser);
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<IActionResult> Update(string name, IFormFile file)
+        {
+            if (name == string.Empty)
+            {
+                return BadRequest("Eroor");
+            }
+        
+            var checkName = await _dataContext.Users.FirstOrDefaultAsync(u => name == u.Name);
+            
+            string path = Path.Combine(_environment.ContentRootPath, "wwwroot/images/");
+            List<string> photoPath = new List<string>();
+            photoPath.Add($"images/{file.FileName}");
+            _uploadFileService.Upload(path, file.FileName, file);
+            if (checkName != null) checkName.FotoPath.Add($"{file}");
+            if (checkName != null)
+            {
+                _dataContext.Users.Update(checkName);
+                await _dataContext.SaveChangesAsync();
+                return Ok(checkName);
+            }
+
+            return BadRequest("Error");
+        }
+        
         [HttpPost]
         [Route("upload")]
         public async Task<string?> Upload([FromForm]UploadFile uploadFile)
