@@ -15,7 +15,7 @@ namespace SaveIMGAPI.Controllers
         private readonly DataContext _dataContext;
         public FileUploadConteoller(IWebHostEnvironment webHostEnvironment , UploadFileService uploadFileService, IHostEnvironment environment, DataContext dataContext)
         {
-            _webHostEnvironment = webHostEnvironment;
+             _webHostEnvironment = webHostEnvironment;
             _uploadFileService = uploadFileService;
             _environment = environment;
             _dataContext = dataContext;
@@ -57,7 +57,7 @@ namespace SaveIMGAPI.Controllers
             _uploadFileService.Upload(path, file.FileName, file);
             if (checkName != null) checkName.FotoPath.Add($"{file}");
             if (checkName != null)
-            {
+            { 
                 _dataContext.Users.Update(checkName);
                 await _dataContext.SaveChangesAsync();
                 return Ok(checkName);
